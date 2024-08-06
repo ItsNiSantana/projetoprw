@@ -19,7 +19,7 @@
                 <input type="text" name="nome" id="nome">
             </div>
             <div>
-                <label for="especie" >Especie</label>
+                <label for="especie" >Espécie</label>
                 <input type="text" name="especie" id="especie">
             </div>
             <div>
@@ -32,19 +32,19 @@
             </div>
             <div>
                 <label for="castrado">Castrado</label>
-                <input type="hidden" name="ativo" id="ativo" value="0">Não castrado
-                <input type="checkbox" name="ativo" id="ativo" value="1">Castrado
+                <input type="radio" name="castrado" id="castradoSim" value="sim" class="inline" /><label id="castradoSim">Sim</label>
+                    <input type="radio" name="castrado" id="castradoNao" value="nao" class="inline" /><label id="castradoNao">Não</label>
                 <br><br>
             </div>
             <div>
-                <label for="cidade">Cidade</label>
-                <select name="cidade" id="cidade">
+                <label for="pessoa">Pessoa</label>
+                <select name="pessoa" id="pessoa">
                     <?php
                     include('../includes/conexao.php');
-                    $sql = "SELECT * FROM cidade";
+                    $sql = "SELECT * FROM pessoa";
                     $result = mysqli_query($con,$sql);
                     while($row = mysqli_fetch_array($result)){
-                        echo "<option value='". $row['id']."'>".$row['nome']."/".$row['estado']."</option>";
+                        echo "<option value='". $row['id']."'>".$row['nome']."/".$row['email']."</option>";
                     }
                     ?>
                 </select>

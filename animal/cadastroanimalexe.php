@@ -16,15 +16,19 @@
         $raca = $_POST['raca'];
         $dt_nasc = $_POST['dt_nasc'];
         $castrado = $_POST['castrado'];
+        $pessoa = $_POST['pessoa'];
 
         echo "<h1>Dados do animal</h1>";
         echo "Nome: $nome<br>";
         echo "Espécie: $especie<br>";
         echo "Raça: $raca<br>";
         echo "Data de nascimento: $dt_nasc<br>";
+        echo "Castrado: " . ($castrado ? "Sim" : "Não") . "</br>";
 
-        $sql = "INSERT INTO animal (nome, especie, raca, dt_nasc, idade)";
-        $sql .= " VALUES ('".$nome."','".$especie."','".$raca."','".$dt_nasc."')";
+        $castrado = $castrado ? 0 : 1;
+        $sql = "INSERT INTO animal (nome, especie, raca, dt_nasc, castrado, id_pessoa)";
+        $sql .= " VALUES('" . $nome . "', '" . $especie . "', '" . $raca . "', '" . $dt_nasc_modif . "', $castrado, $pessoa)";
+
         echo $sql;
 
         //executa comando no banco de dados

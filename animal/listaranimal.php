@@ -27,25 +27,29 @@
         <tr>
             <th>Código</th>
             <th>Nome</th>
-            <th>Especie</th>
+            <th>Espécie</th>
             <th>Raça</th>
             <th>Data de nascimento</th>
             <th>Idade</th>
             <th>Castrado</th>
+            <th>Dono(a)</th>
             <th>Alterar</th>
             <th>Excluir</th>
 
         </tr>
         <?php
             while($row = mysqli_fetch_array($result)){
+                $castrado = $row['castrado'] == 1 ? "Sim" : "Não";
+
                 echo "<tr>";
                 echo "<td>".$row["id"]."</td>";
                 echo "<td>".$row["nome"]."</td>";
                 echo "<td>".$row["especie"]."</td>";
                 echo "<td>".$row["raca"]."</td>";
                 echo "<td>".$row["dt_nasc"]."</td>";
-                echo //fazer comando para calcular idade
-                echo "<td>".$row["castrado"]."</td>";
+                echo "<td>" .$row["idade"]. " anos </td>";
+                echo "<td>".$castrado."</td>";
+                echo "<td>".$row["nomepessoa"]. "/" . $row["email"]."</td>";
                 echo "<td><a href='alteraanimal.php?id=". $row['id']."'>Alterar</a></td>";
                 echo "<td><a href='deletaanimal.php?id=". $row['id']."'>Deletar</a></td>";
                 echo "</tr>";
