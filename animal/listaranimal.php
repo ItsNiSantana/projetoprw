@@ -44,7 +44,7 @@
                 echo "<td>".$row["especie"]."</td>";
                 echo "<td>".$row["raca"]."</td>";
                 echo "<td>".$row["dt_nasc"]."</td>";
-                echo "<td>".$row["idade"]."</td>";
+                echo //fazer comando para calcular idade
                 echo "<td>".$row["castrado"]."</td>";
                 echo "<td><a href='alteraanimal.php?id=". $row['id']."'>Alterar</a></td>";
                 echo "<td><a href='deletaanimal.php?id=". $row['id']."'>Deletar</a></td>";

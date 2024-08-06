@@ -31,10 +31,6 @@
                 <input type="date" name="dt_nasc" id="dt_nasc">
             </div>
             <div>
-                <label for="idade">Idade</label>
-                <input type="number" name="idade" id="idade">
-            </div>
-            <div>
                 <label for="castrado">Castrado</label>
                 <input type="hidden" name="ativo" id="ativo" value="0">Não castrado
                 <input type="checkbox" name="ativo" id="ativo" value="1">Castrado

@@ -5,7 +5,6 @@
     $especie = $_POST['especie'];
     $raca = $_POST['raca'];
     $dt_nasc = $_POST['dt_nasc'];
-    $idade = $_POST['idade'];
     $castrado = $_POST['castrado'];
     $pessoa = $_POST['pessoa'];
     echo "<h1>Dados do animal</h1>";
@@ -13,9 +12,8 @@
     echo "Espécie: $especie<br>";
     echo "Raça: $raca<br>";
     echo "Data de nascimento: $dt_nasc<br>";
-    echo "Idade: $idade<br>";
     $sql = "INSERT INTO animal
-    (nome, especie, raca, dt_nasc, idade, castrado, id_pessoa)";
+    (nome, especie, raca, dt_nasc, castrado, id_pessoa)";
     $sql.= " VALUES('".$nome."','".$especie."','".$raca."','".$dt_nasc."','".$idade."',".$castrado.", ".$pessoa.")";
     echo $sql;
 
@@ -37,8 +35,7 @@
                     nome = '$nome',
                     especie = '$especie',
                     raca = '$raca',
-                    dt_nasc = '$dt_nasc',
-                    idade = '$idade'
+                    dt_nasc = '$dt_nasc'
                 WHERE id = $id";
         $result = mysqli_query($con, $sql);
         if($result)

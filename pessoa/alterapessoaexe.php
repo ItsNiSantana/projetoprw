@@ -8,6 +8,7 @@
     $cep = $_POST['cep'];
     $ativo = $_POST['ativo'];
     $cidade = $_POST['cidade'];
+
     echo "<h1>Dados do cliente</h1>";
     echo "Nome: $nome<br>";
     echo "Email: $email<br>";
@@ -15,7 +16,7 @@
     echo "Bairro: $bairro<br>";
     echo "CEP: $cep<br>";
     $sql = "INSERT INTO cliente
-    (nome, email, senha, ativo, id_cidade)";
+    (nome, email, endereco, bairro, cep, ativo, id_cidade)";
     $sql.= " VALUES('".$nome."','".$email."','".$endereco."','".$bairro."','".$cep."',".$ativo.", ".$cidade.")";
     echo $sql;
 
@@ -33,6 +34,13 @@
     <br>
     <a href="../index.html"><button type="button">Menu</button></a>
     <?php
+        echo "<h1>Dados do cliente</h1>";
+        echo "Nome: $nome<br>";
+        echo "Email: $email<br>";
+        echo "Endereço: $endereco<br>";
+        echo "Bairro: $bairro<br>";
+        echo "CEP: $cep<br>";
+
         $sql = "UPDATE pessoa SET
                     nome = '$nome',
                     email = '$email',

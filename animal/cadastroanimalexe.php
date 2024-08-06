@@ -15,7 +15,6 @@
         $especie = $_POST['especie'];
         $raca = $_POST['raca'];
         $dt_nasc = $_POST['dt_nasc'];
-        $idade = $_POST['idade'];
         $castrado = $_POST['castrado'];
 
         echo "<h1>Dados do animal</h1>";
@@ -23,10 +22,9 @@
         echo "Espécie: $especie<br>";
         echo "Raça: $raca<br>";
         echo "Data de nascimento: $dt_nasc<br>";
-        echo "Idade: $idade<br>";
 
         $sql = "INSERT INTO animal (nome, especie, raca, dt_nasc, idade)";
-        $sql .= " VALUES ('".$nome."','".$especie."','".$raca."','".$dt_nasc."','".$idade."')";
+        $sql .= " VALUES ('".$nome."','".$especie."','".$raca."','".$dt_nasc."')";
         echo $sql;
 
         //executa comando no banco de dados
