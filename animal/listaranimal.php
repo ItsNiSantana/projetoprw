@@ -50,7 +50,7 @@
                     echo "<td></td>";
                 }
                 else{
-                    echo "<td><img src='./" . $row['foto']."' width='80' height = '100'/></td>";
+                    echo "<td><img src='" . $row['foto']."' width='80' height = '100'/></td>";//problema nessa linha arrume
                 }
                 echo "<td>".$row['nomeanimal']."</td>";
                 echo "<td>".$row['especie']."</td>";
