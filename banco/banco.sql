@@ -25,7 +25,6 @@ CREATE TABLE pessoa
     endereco    VARCHAR(100),
     bairro      VARCHAR(100),
     cep         VARCHAR(100),
-    ativo bool,
     id_cidade   INT, 
     PRIMARY KEY(id),
     CONSTRAINT FK_PessoaCidade

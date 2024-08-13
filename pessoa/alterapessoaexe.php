@@ -6,7 +6,6 @@
     $endereco = $_POST['endereco'];
     $bairro = $_POST['bairro'];
     $cep = $_POST['cep'];
-    $ativo = $_POST['ativo'];
     $cidade = $_POST['cidade'];
 
     echo "<h1>Dados do cliente</h1>";
@@ -16,8 +15,8 @@
     echo "Bairro: $bairro<br>";
     echo "CEP: $cep<br>";
     $sql = "INSERT INTO cliente
-    (nome, email, endereco, bairro, cep, ativo, id_cidade)";
-    $sql.= " VALUES('".$nome."','".$email."','".$endereco."','".$bairro."','".$cep."',".$ativo.", ".$cidade.")";
+    (nome, email, endereco, bairro, cep, id_cidade)";
+    $sql.= " VALUES('".$nome."','".$email."','".$endereco."','".$bairro."','".$cep."', ".$cidade.")";
     echo $sql;
 
 ?>

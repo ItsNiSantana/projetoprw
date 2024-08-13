@@ -10,14 +10,7 @@
 <body>
     
     <?php
-        include('../includes/conexao.php');
 
-        $sql = "SELECT a.id, a.nome nomeanimal, a.especie, a.raca, a.dt_nasc, a.idade, a.castrado, p.nome nomepessoa, p.email, p.endereco, p.bairro, p.cep, p.ativo
-                FROM animal.a
-                LEFT JOIN pessoa p on p.id = a.id";
-
-        //executa a consulta
-        $result = mysqli_query($con, $sql);
     ?>
     <h1>Consulta de animal</h1>
     <br>
@@ -26,6 +19,7 @@
     <table align="center" border="1" width="50%">
         <tr>
             <th>Código</th>
+            <th>Foto</th>
             <th>Nome</th>
             <th>Espécie</th>
             <th>Raça</th>
@@ -38,18 +32,33 @@
 
         </tr>
         <?php
+            include('../includes/conexao.php');
+
+            $sql = "SELECT FLOOR(datediff(curdate(), dt_nasc) / 365) as idade, a.id, a.nome nomeanimal, a.especie, a.raca, a.dt_nasc, a.castrado, d.nome nomedono, d.email
+                    FROM animal a
+                    LEFT JOIN pessoa d on d.id = a.id_pessoa";
+        
+            //executa a consulta
+            $result = mysqli_query($con, $sql);
+
             while($row = mysqli_fetch_array($result)){
                 $castrado = $row['castrado'] == 1 ? "Sim" : "Não";
 
                 echo "<tr>";
-                echo "<td>".$row["id"]."</td>";
-                echo "<td>".$row["nome"]."</td>";
-                echo "<td>".$row["especie"]."</td>";
-                echo "<td>".$row["raca"]."</td>";
-                echo "<td>".$row["dt_nasc"]."</td>";
-                echo "<td>" .$row["idade"]. " anos </td>";
+                echo "<td>".$row['id']."</td>";
+                if($row['foto'] == ""){
+                    echo "<td></td>";
+                }
+                else{
+                    echo "<td><img src='./" . $row['foto']."' width='80' height = '100'/></td>";
+                }
+                echo "<td>".$row['nomeanimal']."</td>";
+                echo "<td>".$row['especie']."</td>";
+                echo "<td>".$row['raca']."</td>";
+                echo "<td>".$row['dt_nasc']."</td>";
+                echo "<td>" .$row['idade']. " anos </td>";
                 echo "<td>".$castrado."</td>";
-                echo "<td>".$row["nomepessoa"]. "/" . $row["email"]."</td>";
+                echo "<td>".$row['nomedono']. "/" . $row["email"]."</td>";
                 echo "<td><a href='alteraanimal.php?id=". $row['id']."'>Alterar</a></td>";
                 echo "<td><a href='deletaanimal.php?id=". $row['id']."'>Deletar</a></td>";
                 echo "</tr>";

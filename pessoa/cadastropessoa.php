@@ -35,12 +35,6 @@
                 <input type="text" name="cep" id="cep">
             </div>
             <div>
-                <label for="ativo">Situação</label>
-                <input type="hidden" name="ativo" id="ativo" value="0">
-                <input type="checkbox" name="ativo" id="ativo" value="1">Ativo
-                <br><br>
-            </div>
-            <div>
                 <label for="cidade">Cidade</label>
                 <select name="cidade" id="cidade">
                     <?php
@@ -51,6 +45,7 @@
                         echo "<option value='". $row['id']."'>".$row['nome']."/".$row['estado']."</option>";
                     }
                     ?>
+                    <label for="cidade">Cidade</label >
                 </select>
             </div>
             <br>

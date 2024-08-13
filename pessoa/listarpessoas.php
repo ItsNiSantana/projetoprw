@@ -12,9 +12,9 @@
     <?php
         include('../includes/conexao.php');
 
-        $sql = "SELECT p.id, p.nome nomepessoa, p.email, p.ativo, cid.nome nomecidade, cid.estado
-                FROM pessoa.p
-                LEFT JOIN cidade cid on cid.id = p.id";
+        $sql = "SELECT p.id, p.nome nomepessoa, p.email, p.endereco, p.bairro, p.cep, cid.nome nomecidade, cid.estado
+                FROM pessoa p
+                LEFT JOIN cidade cid on cid.id = p.id_cidade";
 
         //executa a consulta
         $result = mysqli_query($con, $sql);
@@ -31,7 +31,6 @@
             <th>Endereço</th>
             <th>Bairro</th>
             <th>CEP</th>
-            <th>Ativo</th>
             <th>Alterar</th>
             <th>Excluir</th>
 
@@ -45,7 +44,6 @@
                 echo "<td>".$row["endereco"]."</td>";
                 echo "<td>".$row["bairro"]."</td>";
                 echo "<td>".$row["cep"]."</td>";
-                echo "<td>".$row["ativo"]."</td>";
                 echo "<td><a href='alterapessoa.php?id=". $row['id']."'>Alterar</a></td>";
                 echo "<td><a href='deletapessoa.php?id=". $row['id']."'>Deletar</a></td>";
                 echo "</tr>";

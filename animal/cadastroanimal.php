@@ -11,9 +11,13 @@
     <br>
     <a href="../index.html"><button type="button">Menu</button></a>
     <br>
-    <form action="cadastroanimalexe.php" method="post">
+    <form action="cadastroanimalexe.php" method="post" enctype="multipart/form-data"> <!-- codificação para upload-->
         <fieldset>
             <legend>Cadastro do Animal</legend>
+            <div>
+                <label for="foto">Foto</label>
+                <input type="file" name="foto" id="foto" accept="image/*"/>
+            </div>
             <div>
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" id="nome">

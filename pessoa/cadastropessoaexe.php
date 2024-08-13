@@ -13,10 +13,10 @@
     
         $nome = $_POST['nome'];
         $email = $_POST['email'];
+        $cidade = $_POST['cidade'];
         $endereco = $_POST['endereco'];
         $bairro = $_POST['bairro'];
         $cep = $_POST['cep'];
-        $ativo = $_POST['ativo'];
 
         echo "<h1>Dados do dono(a)</h1>";
         echo "Nome: $nome<br>";
@@ -25,8 +25,8 @@
         echo "Bairro: $bairro<br>";
         echo "CEP: $cep<br>";
 
-        $sql = "INSERT INTO pessoa (nome, email, endereco, bairro, cep)";
-        $sql .= " VALUES ('".$nome."','".$email."','".$endereco."','".$bairro."','".$cep."')";
+        $sql = "INSERT INTO pessoa (nome, email, endereco, bairro, cep, id_cidade)";
+        $sql .= " VALUES ('".$nome."','".$email."','".$endereco."','".$bairro."','".$cep."', ". $cidade.")";
         echo $sql;
 
         //executa comando no banco de dados
